@@ -27,11 +27,17 @@ class User {
       Map<String, dynamic> jsonUser = jsonDecode(body);
       List<User> lista_usuarios = [];
       for (dynamic i in jsonUser["data"]) {
-        lista_usuarios.add(User.fromJson(jsonUser));
+        lista_usuarios.add(User.fromJson(i));
       }
       return lista_usuarios;
     } else {
       throw "Error al cargar la api";
     }
+  }
+
+  @override
+  String toString() {
+    // TODO: implement toString
+    return "$first_name $last_name";
   }
 }
